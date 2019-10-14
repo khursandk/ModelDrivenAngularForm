@@ -1,0 +1,83 @@
+<div class="container contact-form">
+  <div class="contact-image">
+    <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact" />
+  </div>
+
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+      <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
+
+        <div class="form-group" [ngClass]="{
+          'has-error': formdata.controls.FirstName.invalid && (formdata.controls.FirstName.dirty || formdata.controls.FirstName.touched),
+          'has-success': formdata.controls.FirstName.valid && (formdata.controls.FirstName.dirty || formdata.controls.FirstName.touched)
+           }">
+          <input type="text" class="form-control" placeholder="First Name" formControlName="FirstName" required>
+          <div class="form-control-feedback"
+            *ngIf="formdata.controls.FirstName.errors && (formdata.controls.FirstName.dirty || formdata.controls.FirstName.touched)">
+            <p *ngIf="formdata.controls.FirstName.errors.required">First Name is required</p>
+            <p *ngIf="formdata.controls.FirstName.errors.minlength">First Name must be 5 characters long, need
+              another
+              {{formdata.controls.FirstName.errors.minlength.requiredLength - formdata.controls.FirstName.errors.minlength.actualLength}}
+              characters </p>
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="{
+            'has-error': formdata.controls.LastName.invalid && (formdata.controls.LastName.dirty || formdata.controls.LastName.touched),
+            'has-success': formdata.controls.LastName.valid && (formdata.controls.LastName.dirty || formdata.controls.LastName.touched)
+             }">
+          <input type="text" class="form-control" placeholder="Last Name" formControlName="LastName" required>
+          <div class="form-control-feedback"
+            *ngIf="formdata.controls.LastName.errors && (formdata.controls.LastName.dirty || formdata.controls.LastName.touched)">
+            <p class="max-content" *ngIf="formdata.controls.LastName.errors.required">Last Name is required</p>
+            <p class="max-content" *ngIf="formdata.controls.LastName.errors.minlength">Last Name must be 5 characters
+              long, need
+              another
+              {{formdata.controls.LastName.errors.minlength.requiredLength - formdata.controls.LastName.errors.minlength.actualLength}}
+              characters </p>
+          </div>
+        </div>
+        <div class="form-group" [ngClass]="{
+              'has-error': formdata.controls.emailid.invalid && (formdata.controls.emailid.dirty || formdata.controls.emailid.touched),
+              'has-success': formdata.controls.emailid.valid && (formdata.controls.emailid.dirty || formdata.controls.emailid.touched)
+               }">
+          <input type="text" class="form-control" placeholder="Email" formControlName="emailid" required>
+          <div class="form-control-feedback"
+            *ngIf="formdata.controls.emailid.errors && (formdata.controls.emailid.dirty || formdata.controls.emailid.touched)">
+            <p class="max-content" *ngIf="formdata.controls.emailid.errors.required">Email is required</p>
+            <p class="max-content" *ngIf="formdata.controls.emailid.errors.pattern">Enter valid Email</p>
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="{
+                'has-error': formdata.controls.Phone.invalid && (formdata.controls.Phone.dirty || formdata.controls.Phone.touched),
+                'has-success': formdata.controls.Phone.valid && (formdata.controls.Phone.dirty || formdata.controls.Phone.touched)
+                 }">
+          <input type="number" class="form-control" placeholder="Phone" formControlName="Phone" required>
+          <div class="form-control-feedback"
+            *ngIf="formdata.controls.Phone.errors && (formdata.controls.Phone.dirty || formdata.controls.Phone.touched)">
+            <p class="max-content" *ngIf="formdata.controls.Phone.errors.required">Phone is required</p>
+          </div>
+        </div>
+
+        <div class="form-group" [ngClass]="{
+                  'has-error': formdata.controls.Address.invalid && (formdata.controls.Address.dirty || formdata.controls.Address.touched),
+                  'has-success': formdata.controls.Address.valid && (formdata.controls.Address.dirty || formdata.controls.Address.touched)
+                   }">
+          <input type="text" class="form-control" placeholder="Address" formControlName="Address" required>
+          <div class="form-control-feedback"
+            *ngIf="formdata.controls.Address.errors && (formdata.controls.Address.dirty || formdata.controls.Address.touched)">
+            <p class="max-content" *ngIf="formdata.controls.Address.errors.required">Address is required</p>
+          </div>
+        </div>
+
+        <br />
+        <div class="form-group">
+          <input type="submit" name="btnSubmit" [disabled]="!formdata.valid" class="btnContact" value="Submit" />
+        </div>
+      </form>
+    </div>
+    <div class="col-lg-3"></div>
+  </div>
+</div>
