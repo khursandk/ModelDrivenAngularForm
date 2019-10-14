@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Model Driven Angular Form 
+  title = 'Model Driven Angular Form'; 
 }
